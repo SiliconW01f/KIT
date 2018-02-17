@@ -74,10 +74,11 @@ echo.
 echo [S] - Single Remote Host
 echo [T] - Target Host List
 echo [L] - Localhost
+echo [B] - Back
 echo.
 
-choice /c STL /n /m ": "
-
+choice /c STLB /n /m ": "
+if "%errorlevel%" == "4" goto start
 if "%errorlevel%" == "3" set host=localhost&goto localhost
 if "%errorlevel%" == "2" goto multiplehosts
 if "%errorlevel%" == "1" goto singlehost
@@ -188,10 +189,11 @@ goto eof 2>nul
 call :banner
 echo Process Memory Dump
 echo.
-set /p host="Enter Hostname or IP Address (Leave Blank to Exit): "
+set host=""
+set /p host="Enter Hostname or IP Address (Leave Blank to Go Back): "
 echo.
 
-if %host%=="" (exit&pause)
+if %host%=="" (goto start)
 
 ping -n 1 %host%|find "Reply from " >nul
 if errorlevel 1 echo %host% is not currently accessible&echo.&timeout /t 3 > nul&goto start
@@ -219,12 +221,13 @@ goto start
 
 :rebootmenu
 call :banner
+set host=""
 echo Reboot Remote Hosts
 echo.
-set /p host="Enter Hostname or IP Address (Leave Blank to Exit): "
+set /p host="Enter Hostname or IP Address to Reboot (Leave Blank to Go Back): "
 echo.
 
-if %host%=="" (exit&pause)
+if %host%=="" (goto start)
 
 ping -n 1 %host%|find "Reply from " >nul
 if errorlevel 1 echo %host% is not currently accessible&echo.&timeout /t 3 > nul&goto start
@@ -241,13 +244,14 @@ goto testping
 
 :processmenu
 call :banner
+set host=""
 echo Manage Processes
 echo.
 
-set /p host="Enter Hostname or IP Address (Leave Blank to Exit): "
+set /p host="Enter Hostname or IP Address (Leave Blank to Go Back): "
 echo.
 
-if %host%=="" (exit&pause)
+if %host%=="" (goto start)
 
 ping -n 1 %host%|find "Reply from " >nul
 if errorlevel 1 echo %host% is not currently accessible&echo.&timeout /t 3 > nul&goto start
@@ -275,22 +279,25 @@ goto start
 
 :servicesmenu
 call :banner
+set host=""
 echo Manage Services
 echo.
 
-set /p host="Enter Hostname or IP Address (Leave Blank to Exit): "
+set /p host="Enter Hostname or IP Address (Leave Blank to Go Back): "
 echo.
 
-if %host%=="" (exit&pause)
+if %host%=="" (goto start)
 
 ping -n 1 %host%|find "Reply from " >nul
 if errorlevel 1 echo %host% is not currently accessible&echo.&timeout /t 3 > nul&goto start
 
 echo [S] - Stop Service
 echo [R] - Restart Service
+echo [B] - Back
 echo.
-choice /c SR /n /m ": "
+choice /c SRB /n /m ": "
 
+if "%errorlevel%" == "3" goto start
 if "%errorlevel%" == "2" set servaction=Restart
 if "%errorlevel%" == "1" set servaction=Stop
 
