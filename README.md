@@ -8,13 +8,13 @@ Download and unzip KIT<br />
 Download latest release from https://github.com/Neo23x0/Loki/releases and unzip into the loki directory<br />
 Download the Sysinternals files from https://docs.microsoft.com/en-us/sysinternals/downloads/pstools and copy the tools to the locations detailed below
 
-\script_tools
+\bin
 
 PsExec.exe<br />
 PsExec64.exe<br />
 psshutdown.exe<br />
 
-\client\script_tools\
+\client\bin\
 
 autorunsc.exe<br />
 autorunsc64.exe<br />
