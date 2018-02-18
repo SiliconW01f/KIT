@@ -39,7 +39,7 @@ Custom signature files can be generated using https://github.com/SiliconW01f/bas
 
 ### Setup Instructions:
 
-1. Edit the first line of "C:\ProgramData\Kingfisher Investigation Toolkit\Config\EventLog.cfg" with required Windows Event IDs seperated by commas(,).
+1. Edit the first line of "C:\ProgramData\Kingfisher Investigation Toolkit\Config\EventLog.cfg" with required Windows Event IDs separated by commas(,).
 
 1. Edit the first line of "C:\ProgramData\Kingfisher Investigation Toolkit\Config\EventLog.cfg" with the number of hours of Windows Event Logs to Search.
 
@@ -56,15 +56,23 @@ Requires Admin permissions (Right-click run as administrator)
 
 If an internet connection is detected you will be asked if you want to update the Loki signatures
 
+The two IOC scan options collects data from the targeted host using inbuilt Windows functions and Sysinternals tools:
+  * Current IP addresses  
+  * Windows log events defined by a configuration file  
+  * Current running processes  
+  * Autorun locations to check for persistence techniques  
+  * Active services  
+  * TCP connections  
+
 ### Options:
 
-[P] - Process Only IOC Scan (Perfom data collection and a process only Loki scan excluding the file system)  
+[P] - Process Only IOC Scan (Perform data collection and a process only Loki scan excluding the file system)  
   * [S] - Single Remote Host (Run on single remote host, you will be prompted for the IP or hostname)  
   * [T] - Target Host List (Run on all hosts listed in the Target Host List file)  
   * [L] - Localhost (Run on local host)  
   * [B] - Back (Back to main menu)  
 
-[F] - Full IOC Scan (Perfom data collection and a full Loki scan including the file system)  
+[F] - Full IOC Scan (Perform data collection and a full Loki scan including the file system)  
   * [S] - Single Remote Host (Run on single remote host, you will be prompted for the IP or hostname)  
   * [T] - Target Host List (Run on all hosts listed in the Target Host List file)  
   * [L] - Localhost (Run on local host)  
@@ -74,7 +82,7 @@ If an internet connection is detected you will be asked if you want to update th
 
 [R] - Reboot Host (Reboot a remote host)
 
-[K] - Kill Processes(Kill a specific process, running process list will be displayed)
+[K] - Kill Processes (Kill a specific process, running process list will be displayed)
 
 [S] - Manage Services (Either restart or stop a service, active service list will be displayed)  
   * [S] - Stop Service  
