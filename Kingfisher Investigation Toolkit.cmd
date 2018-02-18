@@ -4,15 +4,15 @@ setlocal EnableExtensions EnableDelayedExpansion
 
 color 0a
 del /q "%~dp0\tmp\*.txt" 2>nul >nul
-cd /d %~dp0\config
-for /f "delims=:" %%a in (LogStore.cfg) do (
+cd /d "C:\ProgramData\Kingfisher Investigation Toolkit\Config"
+for /f "delims=" %%a in (LogStore.cfg) do (
 set /a c+=1
 set x[!c!]=%%a
 )
 set x > nul
 set logs=%x[1]%
 
-xcopy /y /d *.cfg "%~dp0\client\config"
+xcopy /y /i /d *.cfg "%~dp0\client\config"
 
 call :banner
 
@@ -58,7 +58,7 @@ echo [E] - Exit
 echo.
 choice /c PFMRKSTOE /n /m ": "
 if "%errorlevel%" == "9" exit
-if "%errorlevel%" == "8" start /max explorer %logs%&goto start
+if "%errorlevel%" == "8" start /max explorer "%logs%"&goto :start
 if "%errorlevel%" == "7" goto availabilitytest
 if "%errorlevel%" == "6" goto servicesmenu
 if "%errorlevel%" == "5" goto processmenu
@@ -139,7 +139,7 @@ del /q "%~dp0\tmp\scancomplete-%uid%.tmp"
 goto start
 
 :multiplehosts
-cd /d %~dp0
+cd /d "%APPDATA%\Kingfisher Investigation Toolkit"
 for /F "delims=" %%a in (Target_Host_List.txt) do (
 set time0=!TIME: =0!
 set hour=!time0:~0,2!
@@ -153,7 +153,7 @@ if errorlevel 1 (set osarchitecture=
 ) else (
 set osarchitecture=64
 )
-cd /d %~dp0/bin
+cd /d "%~dp0/bin"
 start psexec!osarchitecture!.exe -h -nobanner -accepteula \\%%a cmd /c "echo. | c:\kit\Client.cmd !scantype! !uid! !osarchitecture!"
 call :banner
 echo Wating for Data collect to complete on %%a
@@ -197,7 +197,7 @@ if %host%=="" (goto start)
 
 ping -n 1 %host%|find "Reply from " >nul
 if errorlevel 1 echo %host% is not currently accessible&echo.&timeout /t 3 > nul&goto start
-
+xcopy /e /y /i /d "%~dp0client\bin" "\\%host%\c$\KIT\bin" 2>nul >nul
 wmic /node: %host% os get osarchitecture  | find /i "64" > nul
 if errorlevel 1 (set osarchitecture=
 ) else (
@@ -256,6 +256,8 @@ if %host%=="" (goto start)
 ping -n 1 %host%|find "Reply from " >nul
 if errorlevel 1 echo %host% is not currently accessible&echo.&timeout /t 3 > nul&goto start
 
+xcopy /e /y /i /d "%~dp0client\bin" "\\%host%\c$\KIT\bin" 2>nul >nul
+
 wmic /node: %host% os get osarchitecture  | find /i "64" > nul
 if errorlevel 1 (set osarchitecture=
 ) else (
@@ -301,6 +303,8 @@ if "%errorlevel%" == "3" goto start
 if "%errorlevel%" == "2" set servaction=Restart
 if "%errorlevel%" == "1" set servaction=Stop
 
+xcopy /e /y /i /d "%~dp0client\bin" "\\%host%\c$\KIT\bin" 2>nul >nul
+
 cd /d %~dp0\bin
 psexec%osarchitecture%.exe -h -nobanner -accepteula "\\%host%" cmd /c "echo. | c:\kit\bin\PsService%osarchitecture%.exe query -s active | findstr /R /C:"SERVICE_NAME:"
 
@@ -320,7 +324,7 @@ echo CTRL + C to Exit
 echo.
 
 :teststart
-cd /d %~dp0
+cd /d "%APPDATA%\Kingfisher Investigation Toolkit"
 for /F "delims=" %%a in (Target_Host_List.txt) do (
 ping %%a -n 1 | find /i "bytes=" > nul
 if errorlevel 1 echo %time% - %%a is down&timeout /t 5 > nul
