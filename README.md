@@ -35,6 +35,7 @@ C:\ProgramData\Kingfisher Investigation Toolkit (copy Target_Host_List.txt)<br /
 C:\ProgramData\Kingfisher Investigation Toolkit\config (Copy the EventLog.cfg and LogStore.cfg)<br />
 C:\ProgramData\Kingfisher Investigation Toolkit\logs
 
+Custom signature files can be generated using https://github.com/SiliconW01f/bash_scripts/blob/master/yarGen.sh and https://github.com/SiliconW01f/KIT/blob/master/tools/IOC_to_Loki.xlsx
 
 Setup Instructions:
 
