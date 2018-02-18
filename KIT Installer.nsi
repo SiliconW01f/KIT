@@ -45,7 +45,7 @@ Section "MainSection" SEC01
   CreateDirectory "$INSTDIR\tmp"
 SectionEnd
 
-Section "Appdata" SEC02
+Section "ProgramData" SEC02
   SetOutPath "C:\ProgramData\Kingfisher Investigation Toolkit\config"
   File "config\*.*"
   SetOutPath "C:\ProgramData\Kingfisher Investigation Toolkit"
