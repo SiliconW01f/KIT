@@ -5,7 +5,7 @@ Scripted method for undertaking basic incident response investigative tasks on a
 ##### Works on Vista and Newer Operating Systems. XP not supported due to the limitations of dependencies.
 
 1. Download and unzip KIT<br />
-1. Download latest release from https://github.com/Neo23x0/Loki/releases and unzip into the loki directory<br />
+1. Download latest release of Loki from https://github.com/Neo23x0/Loki/releases/latest and unzip into the loki directory<br />
 1. Download the Sysinternals files from https://docs.microsoft.com/en-us/sysinternals/downloads/pstools and copy the tools to the locations detailed below
 
 \bin
