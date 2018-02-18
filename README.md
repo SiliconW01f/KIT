@@ -27,7 +27,7 @@ Scripted method for undertaking basic incident response investigative tasks on a
   * PsService64.exe  
   * Tcpvcon.exe  
 
-If creating installer, download NSIS from http://nsis.sourceforge.net/Download and compile from KIT Installer.nsi
+If creating installer, download NSIS from http://nsis.sourceforge.net/Download, install the ShellLink plugin from http://nsis.sourceforge.net/ShellLink_plug-in and compile using KIT Installer.nsi
 
 If not create folders:
 
