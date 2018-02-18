@@ -4,35 +4,35 @@ Scripted method for undertaking basic incident response investigative tasks on a
 
 Works on Vista and Newer Operating Systems. XP not supported due to the limitations of dependencies.
 
-Download and unzip KIT
-Download latest release from https://github.com/Neo23x0/Loki/releases and unzip into the loki directory
+Download and unzip KIT<br />
+Download latest release from https://github.com/Neo23x0/Loki/releases and unzip into the loki directory<br />
 Download the Sysinternals files from https://docs.microsoft.com/en-us/sysinternals/downloads/pstools and copy the tools to the locations detailed below
 
 \script_tools
 
-PsExec.exe
-PsExec64.exe
-psshutdown.exe
+PsExec.exe<br />
+PsExec64.exe<br />
+psshutdown.exe<br />
 
 \client\script_tools\
 
-autorunsc.exe
-autorunsc64.exe
-pskill.exe
-pskill64.exe
-pslist.exe
-pslist64.exe
-psloglist.exe
-PsService.exe
-PsService64.exe
+autorunsc.exe<br />
+autorunsc64.exe<br />
+pskill.exe<br />
+pskill64.exe<br />
+pslist.exe<br />
+pslist64.exe<br />
+psloglist.exe<br />
+PsService.exe<br />
+PsService64.exe<br />
 Tcpvcon.exe
 
 If creating install, compile from KIT Installer.nsi
 
 If not create folders:
 
-C:\ProgramData\Kingfisher Investigation Toolkit (copy Target_Host_List.txt)
-C:\ProgramData\Kingfisher Investigation Toolkit\config (Copy the EventLog.cfg and LogStore.cfg)
+C:\ProgramData\Kingfisher Investigation Toolkit (copy Target_Host_List.txt)<br />
+C:\ProgramData\Kingfisher Investigation Toolkit\config (Copy the EventLog.cfg and LogStore.cfg)<br />
 C:\ProgramData\Kingfisher Investigation Toolkit\logs
 
 
