@@ -27,7 +27,7 @@ PsService.exe<br />
 PsService64.exe<br />
 Tcpvcon.exe
 
-If creating install, compile from KIT Installer.nsi
+If creating installer, download NSIS from http://nsis.sourceforge.net/Download and compile from KIT Installer.nsi
 
 If not create folders:
 
