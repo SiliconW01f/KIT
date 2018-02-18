@@ -43,6 +43,16 @@ Section "MainSection" SEC01
   SetOutPath "$INSTDIR\tools"
   File "tools\*.*"
   CreateDirectory "$INSTDIR\tmp"
+  
+ShellLink::SetRunAsAdministrator "$DESKTOP\Kingfisher Investigation Toolkit.lnk"
+	Pop $0
+	DetailPrint "SetRunAsAdministrator: $0"
+	DetailPrint ""
+	
+ShellLink::SetRunAsAdministrator "$SMPROGRAMS\Kingfisher Investigation Toolkit\Kingfisher Investigation Toolkit.lnk"
+	Pop $0
+	DetailPrint "SetRunAsAdministrator: $0"
+	DetailPrint ""
 SectionEnd
 
 Section "ProgramData" SEC02
@@ -58,6 +68,7 @@ Section -AdditionalIcons
   SetOutPath $INSTDIR
   CreateDirectory "$SMPROGRAMS\Kingfisher Investigation Toolkit"
   CreateShortCut "$SMPROGRAMS\Kingfisher Investigation Toolkit\Uninstall.lnk" "$INSTDIR\uninst.exe"
+  
 SectionEnd
 
 Section -Post
