@@ -139,7 +139,7 @@ del /q "%~dp0\tmp\scancomplete-%uid%.tmp"
 goto start
 
 :multiplehosts
-cd /d "%APPDATA%\Kingfisher Investigation Toolkit"
+cd /d "C:\ProgramData\Kingfisher Investigation Toolkit"
 for /F "delims=" %%a in (Target_Host_List.txt) do (
 set time0=!TIME: =0!
 set hour=!time0:~0,2!
@@ -324,7 +324,7 @@ echo CTRL + C to Exit
 echo.
 
 :teststart
-cd /d "%APPDATA%\Kingfisher Investigation Toolkit"
+cd /d "C:\ProgramData\Kingfisher Investigation Toolkit"
 for /F "delims=" %%a in (Target_Host_List.txt) do (
 ping %%a -n 1 | find /i "bytes=" > nul
 if errorlevel 1 echo %time% - %%a is down&timeout /t 5 > nul
