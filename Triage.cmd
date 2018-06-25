@@ -38,9 +38,9 @@ CHOICE /C CE /N /T 30 /D C /M "Without Administrative permissions memory dump an
 IF "%ERRORLEVEL%" == "2" EXIT
 
 CLS
-ECHO ----------------------------
-ECHO  591SU COMPUTER TRIAGE TOOL
-ECHO ----------------------------
+ECHO -----------------------
+ECHO  COMPUTER TRIAGE TOOL
+ECHO -----------------------
 ECHO.
 TIMEOUT /T 1 >NUL
 ECHO Stage 1 of 3 - Memory Dump - Failed (Cannot dump memory without administrative permissions)
