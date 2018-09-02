@@ -1,6 +1,6 @@
 @ECHO OFF
 
-TITLE 591SU COMPUTER TRIAGE TOOL
+TITLE COMPUTER TRIAGE TOOL
 CLS
 COLOR 0A
 
@@ -19,9 +19,9 @@ IF "%SEC:~0,1%" == " " SET SEC=0%SEC:~1,1%
 
 SET "DTG=%YY%%MM%%DD%_%HR%%MIN%"
 
-ECHO ----------------------------
-ECHO  591SU COMPUTER TRIAGE TOOL
-ECHO ----------------------------
+ECHO -----------------------
+ECHO  COMPUTER TRIAGE TOOL
+ECHO -----------------------
 ECHO.
 
 CD %~dp0
